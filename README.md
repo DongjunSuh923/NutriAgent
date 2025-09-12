@@ -92,11 +92,11 @@ npm start
 
 #### FastAPI (실행 및 http://127.0.0.1:8000/search?query=소고기 접속 결과)
 <img width="1481" height="480" alt="image" src="https://github.com/user-attachments/assets/805daeec-dcc9-4d1b-82bc-ba5e5e54869e" />
-<img width="1919" height="991" alt="image" src="https://github.com/user-attachments/assets/f5570ddd-21ab-4e35-8a04-738b0aaa6de8" />
+<img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/074a7f98-d054-4ebb-a429-0de0e5948bf6" />
+
 
 #### React (실행 및 '소고기' 검색 결과)
 <img width="1479" height="483" alt="image" src="https://github.com/user-attachments/assets/0de712bd-e73f-4048-9c87-27d91375d6cb" />
-<img width="1919" height="990" alt="image" src="https://github.com/user-attachments/assets/ec213fef-ca8c-46ae-baa0-979e88d7666b" />
 <img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/08194b3f-83c2-4389-bf41-078e0de2ee16" />
 
 
