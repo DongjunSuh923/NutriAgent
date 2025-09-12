@@ -19,7 +19,7 @@
 
 
 ### 2. 프로젝트 구조
-
+```
 NutriAgent/
 ├─ app/ # FastAPI
 │ ├─ main.py
@@ -33,7 +33,7 @@ NutriAgent/
 │ └─ 20250408_음식DB.xlsx # 국내 음식 DB, 가공 식품 데이터 미포함
 ├─ import_food_data.py # .xlsx -> DB 적재 스크립트
 └─ README.md
-
+```
 
 ### 3. 데이터베이스
 
