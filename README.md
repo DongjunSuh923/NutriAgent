@@ -42,14 +42,20 @@ NutriAgent/
 #### 1. 컨테이너 실행
 
 컨테이너 시작
- docker start nutri-postgres
+```
+docker start nutri-postgres
+```
 
 + 상태 확인
- docker ps
+```
+docker ps
+```
 
 #### 2. 데이터 적재
 - venv 활성화 후
- python import_food_data.py
+```
+python import_food_data.py
+```
 - data 폴더의 '20250408_음식DB.xlsx'에서 데이터 추출(약 29,000건)
 - 가공 식품을 포함한 별도의 DB도 존재하므로 필요시 추가 가능
 
@@ -57,20 +63,22 @@ NutriAgent/
 ### 4. FastAPI
 
 - 가상환경 활성화
- cd D:\Programming\Python\NutriAgent    # 필요시 개인 환경에 맞춰 경로 변경
- .\venv\Scripts\activate
-
- uvicorn app.main:app --reload
+```
+cd D:\Programming\Python\NutriAgent    # 필요시 개인 환경에 맞춰 경로 변경
+.\venv\Scripts\activate
+uvicorn app.main:app --reload
+```
 
  - API 확인
   http://127.0.0.1:8000/search?query=검색어
 
 
 ### 5. React
-
- cd frontend
- (필요시 npm install)
- npm start
+```
+cd frontend
+(필요시 npm install)
+npm start
+```
 
 - 자동 실행
  http://localhost:3000
