@@ -7,7 +7,16 @@
  1. Docker(Postgres)
  2. FastAPI
  3. React
-- 의존성 설치시 반드시 (venv)가 표시되어 있는 CMD인지 확인할 
+    
+- 의존성 설치시 반드시 (venv)가 표시되어 있는 CMD인지 확인할 것
+- 의존성 목록
+- fastapi
+- uvicorn
+- sqlalchemy
+- pandas
+- openpyxl
+- psycopg2
+- python-dotenv
 
 
 ## 환경 세팅
@@ -42,7 +51,11 @@ NutriAgent/
 
 #### 1. 컨테이너 실행
 
-컨테이너 시작
+최초 1회
+```
+docker run --name nutri-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=nutri_db -p 5432:5432 -d postgres:15
+```
+이후 컨테이너 시작
 ```
 docker start nutri-postgres
 ```
