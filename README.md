@@ -7,6 +7,7 @@
  1. Docker(Postgres)
  2. FastAPI
  3. React
+- 의존성 설치시 반드시 (venv)가 표시되어 있는 CMD인지 확인할 
 
 
 ## 환경 세팅
