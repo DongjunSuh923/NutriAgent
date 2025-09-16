@@ -12,7 +12,13 @@ POSTGRES_DB = os.getenv("POSTGRES_DB")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:1234@127.0.0.1:5432/nutri_db"
+# SQLALCHEMY_DATABASE_URL = "postgresql://postgres:1234@127.0.0.1:5432/nutri_db"
+
+SQLALCHEMY_DATABASE_URL = (
+    f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}"
+    f"@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+)
+
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
