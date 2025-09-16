@@ -2,22 +2,14 @@
 
 ## 주의사항
 
-- DB URL에 localhost 대신 127.0.0.1 사용 !! (Docker 환경 이슈로 URL이 localhost면 검색이 안되는 걸로 추정)
+- DB URL에 localhost 대신 127.0.0.1 사용 !! (Docker 환경 이슈로 URL이 localhost면 검색이 안될수도 있음)
 - 서버 시작 순서
  1. Docker(Postgres)
  2. FastAPI
  3. React
     
 - 의존성 설치시 반드시 (venv)가 표시되어 있는 CMD인지 확인할 것
-- 의존성 목록
-- fastapi
-- uvicorn
-- sqlalchemy
-- pandas
-- openpyxl
-- psycopg2
-- python-dotenv
-
+- requirements.txt 참고, 간혹 일부 환경에서 인코딩 문제로 .xlsx 추출 스크립트가 작동을 안하는 경우가 있는 것으로 보임. 해결 방법 탐색 중..
 
 ## 환경 세팅
 
@@ -34,7 +26,7 @@ NutriAgent/
 ├─ app/ # FastAPI
 │ ├─ main.py
 │ ├─ database.py
-│ └─ models_orm.py
+│ └─ models.py
 ├─ frontend/ # React
 │ ├─ src/
 │ │ └─ App.js
@@ -42,6 +34,7 @@ NutriAgent/
 ├─ data/
 │ └─ 20250408_음식DB.xlsx # 국내 음식 DB, 가공 식품 데이터 미포함
 ├─ import_food_data.py # .xlsx -> DB 적재 스크립트
+├─ requirements.txt
 └─ README.md
 ```
 
