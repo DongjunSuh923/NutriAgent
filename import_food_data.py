@@ -1,5 +1,5 @@
 import pandas as pd
-from app.models_orm import Food
+from app.models import Food
 from app.database import SessionLocal, engine, Base
 import re
 
