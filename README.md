@@ -10,6 +10,10 @@
     
 - 의존성 설치시 반드시 (venv)가 표시되어 있는 CMD인지 확인할 것
 - requirements.txt 참고, 간혹 일부 환경에서 인코딩 문제로 .xlsx 추출 스크립트가 작동을 안하는 경우가 있는 것으로 보임. 해결 방법 탐색 중..
+- 만약 스크립트 실행이 안될 시 git lfs pull를 통해 업로드 되어있는 docker 컨테이너 복제본(nutri-postgres-backup.tar)을 로드해서 사용
+```
+docker load -i nutri-postgres-backup.tar
+```
 
 ## 환경 세팅
 
