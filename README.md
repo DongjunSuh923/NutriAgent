@@ -1,7 +1,7 @@
 # NutriAgent
 
 ## 주의사항
-
+- 현재 일부 환경에서 UTF-8 인코딩 관련 이슈로 실행이 안되는 문제가 있음
 - DB URL에 localhost 대신 127.0.0.1 사용 !! (Docker 환경 이슈로 URL이 localhost면 검색이 안될수도 있음)
 - 서버 시작 순서
  1. Docker(Postgres)
@@ -9,7 +9,7 @@
  3. React
     
 - 의존성 설치시 반드시 (venv)가 표시되어 있는 CMD인지 확인할 것
-- requirements.txt 참고, 간혹 일부 환경에서 인코딩 문제로 .xlsx 추출 스크립트가 작동을 안하는 경우가 있는 것으로 보임. 해결 방법 탐색 중..
+- requirements.txt 참고, 간혹 일부 환경에서 인코딩 문제로 .xlsx 추출 스크립트가 작동을 안하는 경우가 있는 것으로 보임
 - 만약 스크립트 실행이 안될 시 임시 추출본 fooddata.sql을 임시로 사용해 DB 구성
 ```
 docker exec -e PGPASSWORD=1234 -i nutri-postgres psql -U postgres -d nutri_db < fooddata.sql   
@@ -39,6 +39,7 @@ NutriAgent/
 │ └─ 20250408_음식DB.xlsx # 국내 음식 DB, 가공 식품 데이터 미포함
 ├─ import_food_data.py # .xlsx -> DB 적재 스크립트
 ├─ requirements.txt
+├─ fooddata.sql
 └─ README.md
 ```
 
