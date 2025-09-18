@@ -12,7 +12,7 @@
 - requirements.txt 참고, 간혹 일부 환경에서 인코딩 문제로 .xlsx 추출 스크립트가 작동을 안하는 경우가 있는 것으로 보임. 해결 방법 탐색 중..
 - 만약 스크립트 실행이 안될 시 임시 추출본 fooddata.sql을 임시로 사용해 DB 구성
 ```
-type fooddata.sql | docker exec -i nutri-postgres psql -U postgres -d nutri_db
+docker exec -e PGPASSWORD=1234 -i nutri-postgres psql -U postgres -d nutri_db < fooddata.sql   
 ```
 
 ## 환경 세팅
