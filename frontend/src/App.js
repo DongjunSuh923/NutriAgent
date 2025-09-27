@@ -123,7 +123,6 @@ function App() {
             {" | "} 단백질: {item.protein} g
             {" | "} 탄수화물: {item.carbs} g
             {" | "} 지방: {item.fat} g
-            {" | "} 변형: {item.variants} 종
           </li>
         ))}
       </ul>
