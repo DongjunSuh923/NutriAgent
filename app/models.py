@@ -12,3 +12,8 @@ class Food(Base):
     protein = Column(Float)
     fat = Column(Float)
     sodium = Column(Float)
+    sugars = Column(Float, nullable=True)
+    fiber = Column(Float, nullable=True)
+    cholesterol = Column(Float, nullable=True)
+    saturated_fat = Column(Float, nullable=True)
+    trans_fat = Column(Float, nullable=True)
