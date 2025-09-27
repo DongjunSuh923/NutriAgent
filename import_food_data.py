@@ -7,9 +7,6 @@ Base.metadata.create_all(bind=engine)
 
 df = pd.read_excel("data/20250408_음식DB.xlsx")
 
-print(df.head())
-print(df.columns)
-
 df.rename(columns={
     '식품명': 'name',
     '영양성분함량기준량': 'weight',
@@ -17,7 +14,12 @@ df.rename(columns={
     '탄수화물(g)': 'carbs',
     '단백질(g)': 'protein',
     '지방(g)': 'fat',
-    '나트륨(mg)': 'sodium'
+    '나트륨(mg)': 'sodium',
+    '당류(g)': 'sugars',
+    '식이섬유(g)': 'fiber',
+    '콜레스테롤(mg)': 'cholesterol',
+    '포화지방산(g)': 'saturated_fat',
+    '트랜스지방산(g)': 'trans_fat'
 }, inplace=True)
 
 def extract_numeric_weight(val):
@@ -40,7 +42,12 @@ for _, row in df.iterrows():
         carbs=row['carbs'],
         protein=row['protein'],
         fat=row['fat'],
-        sodium=row['sodium']
+        sodium=row['sodium'],
+        sugars=row['sugars'],
+        fiber=row['fiber'],
+        cholesterol=row['cholesterol'],
+        saturated_fat=row['saturated_fat'],
+        trans_fat=row['trans_fat']
     )
     db.add(food)
 
