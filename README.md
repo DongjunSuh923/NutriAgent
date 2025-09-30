@@ -34,10 +34,23 @@ NutriAgent/
 ├─ frontend/ # React
 │ ├─ src/
 │ │ └─ App.js
+│ │ └─ App.css
+│ │ └─ App.test.js
+│ │ └─ index.css
+│ │ └─ index.js
+│ │ └─ logo.svg
+│ │ └─ reportWebVitals.js
+│ │ └─ setupTests.js
 │ └─ package.json
 ├─ data/
-│ └─ 20250408_음식DB.xlsx # 국내 음식 DB, 가공 식품 데이터 미포함
+│ └─ 20250408_음식DB.xlsx
+│ └─ 20250327_가공식품DB_147999건.xlsx
+│ └─ 국가표준식품성분표_250426공개.xlsx
+├─ routers/
+│ └─ foods.py
 ├─ import_food_data.py # .xlsx -> DB 적재 스크립트
+├─ import_processed_food_data.py # .xlsx -> DB 적재 스크립트
+├─ import_standard_food_data.py # .xlsx -> DB 적재 스크립트
 ├─ requirements.txt
 └─ README.md
 ```
@@ -67,8 +80,7 @@ docker ps
 ```
 python import_food_data.py
 ```
-- data 폴더의 '20250408_음식DB.xlsx'에서 데이터 추출(약 29,000건)
-- 가공 식품을 포함한 별도의 DB도 존재하므로 필요시 추가 가능
+- data 폴더의 '20250408_음식DB.xlsx' 외 2개를 스크립트 'import_~_food_data.py' 3개를 각각 최초 1회 실행해 추출
 
 
 ### 4. FastAPI
