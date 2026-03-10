@@ -20,5 +20,5 @@ frontend/build/
 .DS_Store
 Thumbs.db
 
-# Environment variables ?
-# .env
+# Environment variables
+.env

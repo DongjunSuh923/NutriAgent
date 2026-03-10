@@ -60,16 +60,16 @@ def get_food_detail(name: str = Query(..., min_length=1), db: Session = Depends(
 
     return {
         "name": name,
-        "calories": round(result.calories, 2),
-        "carbs": round(result.carbs, 2),
-        "protein": round(result.protein, 2),
-        "fat": round(result.fat, 2),
-        "sugars": round(result.sugars, 2),
-        "fiber": round(result.fiber, 2),
-        "sodium": round(result.sodium, 2),
-        "cholesterol": round(result.cholesterol, 2),
-        "saturated_fat": round(result.saturated_fat, 2),
-        "trans_fat": round(result.trans_fat, 2),
+        "calories": round(result.calories, 2) if result.calories else None,
+        "carbs": round(result.carbs, 2) if result.carbs else None,
+        "protein": round(result.protein, 2) if result.protein else None,
+        "fat": round(result.fat, 2) if result.fat else None,
+        "sugars": round(result.sugars, 2) if result.sugars else None,
+        "fiber": round(result.fiber, 2) if result.fiber else None,
+        "sodium": round(result.sodium, 2) if result.sodium else None,
+        "cholesterol": round(result.cholesterol, 2) if result.cholesterol else None,
+        "saturated_fat": round(result.saturated_fat, 2) if result.saturated_fat else None,
+        "trans_fat": round(result.trans_fat, 2) if result.trans_fat else None,
         "variants": result.variants
     }
 
