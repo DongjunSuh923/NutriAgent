@@ -9,6 +9,10 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+@app.get("/")
+async def health_check():
+    return {"status": "healthy"}
+
 app.include_router(foods.router)
 
 app.add_middleware(
