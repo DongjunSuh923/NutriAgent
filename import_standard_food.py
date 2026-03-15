@@ -4,12 +4,7 @@ from app.database import SessionLocal, engine, Base
 
 Base.metadata.create_all(bind=engine)
 
-df = pd.read_excel(
-    "data/국가표준식품성분표_250426공개.xlsx",
-    sheet_name="국가표준식품성분 Database 10.0",
-    header=1,
-    skiprows=[2]
-)
+df = pd.read_csv("data/국가표준식품성분표_250426공개__DB10_2.csv")
 
 df = df.rename(columns={
     "식품명": "name",
@@ -76,4 +71,4 @@ for _, row in df.iterrows():
 db.commit()
 db.close()
 
-print(f"{count}개의 데이터를 DB에 추가했습니다.")
+print(f"{count}개의 국가표준식품 데이터를 DB에 추가했습니다.")

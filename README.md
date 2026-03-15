@@ -9,7 +9,7 @@
  3. React
     
 - 의존성 설치시 반드시 (venv)가 표시되어 있는 CMD인지 확인할 것
-- requirements.txt 참고, 간혹 일부 환경에서 인코딩 문제로 .xlsx 추출 스크립트가 작동을 안하는 경우가 있는 것으로 보임. 해결 방법 탐색 중..
+- requirements.txt 참고
 - 만약 스크립트 실행이 안될 시 git lfs pull를 통해 업로드 되어있는 docker 컨테이너 복제본(nutri-postgres-backup.tar)을 로드해서 사용
 ```
 docker load -i nutri-postgres-backup.tar
@@ -43,9 +43,9 @@ NutriAgent/
 │ │ └─ setupTests.js
 │ └─ package.json
 ├─ data/
-│ └─ 20250408_음식DB.xlsx
-│ └─ 20250327_가공식품DB_147999건.xlsx
-│ └─ 국가표준식품성분표_250426공개.xlsx
+│ └─ 20250408_음식DB__mean20.csv
+│ └─ 20250327_가공식품DB_147999건__mean20.csv
+│ └─ 국가표준식품성분표_250426공개__DB10_2.csv
 ├─ routers/
 │ └─ foods.py
 ├─ import_food_data.py # .xlsx -> DB 적재 스크립트
@@ -80,7 +80,10 @@ docker ps
 ```
 python import_food_data.py
 ```
-- data 폴더의 '20250408_음식DB.xlsx' 외 2개를 스크립트 'import_~_food_data.py' 3개를 각각 최초 1회 실행해 추출
+- data 폴더의 CSV 파일 3개를 스크립트 'import_*.py' 3개를 순서대로 최초 1회 실행해 DB에 적재
+  1. python import_food_data.py (기존 데이터 삭제 후 음식DB 추가)
+  2. python import_processed_food_data.py (가공식품DB 추가, 약 14만건)
+  3. python import_standard_food.py (국가표준식품DB 추가)
 
 
 ### 4. FastAPI

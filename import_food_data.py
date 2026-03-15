@@ -5,7 +5,7 @@ import re
 
 Base.metadata.create_all(bind=engine)
 
-df = pd.read_excel("data/20250408_음식DB.xlsx")
+df = pd.read_csv("data/20250408_음식DB__mean20.csv")
 
 df.rename(columns={
     '식품명': 'name',
@@ -34,6 +34,13 @@ df.fillna(0.0, inplace=True)
 
 db = SessionLocal()
 
+# 기존 데이터 전체 삭제 (첫 번째 스크립트에서만 실행)
+print("기존 데이터를 삭제합니다...")
+db.query(Food).delete()
+db.commit()
+print("기존 데이터 삭제 완료!")
+
+count = 0
 for _, row in df.iterrows():
     food = Food(
         name=row['name'],
@@ -50,6 +57,9 @@ for _, row in df.iterrows():
         trans_fat=row['trans_fat']
     )
     db.add(food)
+    count += 1
 
 db.commit()
 db.close()
+
+print(f"{count}개의 음식 데이터를 추가했습니다.")

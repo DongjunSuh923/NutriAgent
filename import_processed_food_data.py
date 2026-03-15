@@ -5,7 +5,7 @@ from app.database import SessionLocal, engine, Base
 
 Base.metadata.create_all(bind=engine)
 
-df = pd.read_excel("data/20250327_가공식품DB_147999건.xlsx", sheet_name=0)
+df = pd.read_csv("data/20250327_가공식품DB_147999건__mean20.csv")
 
 df.rename(columns={
     '식품명': 'name',
@@ -30,7 +30,11 @@ def extract_numeric_weight(val):
 
 df['weight'] = df['weight'].apply(extract_numeric_weight)
 
-df.fillna(0.0, inplace=True)
+# Fill NaN only for numeric columns
+numeric_cols = ['weight', 'calories', 'carbs', 'protein', 'fat', 'sodium', 'sugars', 'fiber', 'cholesterol', 'saturated_fat', 'trans_fat']
+for col in numeric_cols:
+    if col in df.columns:
+        df[col] = df[col].fillna(0.0)
 
 db = SessionLocal()
 
@@ -56,4 +60,4 @@ for _, row in df.iterrows():
 db.commit()
 db.close()
 
-print(f"{count}개의 데이터를 추가했습니다.")
+print(f"{count}개의 가공식품 데이터를 추가했습니다.")
